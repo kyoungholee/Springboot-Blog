@@ -34,7 +34,6 @@ public class Board {
     //내용
 
 
-    @ColumnDefault("0")//기본적
     private int count; // 조회수
 
     //EAGER user를 가져올게

@@ -1,10 +1,9 @@
 package com.cos.blog.service;
 
-import javax.persistence.Entity;
-import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cos.blog.model.User;
 import com.cos.blog.repository.UserRepository;
@@ -18,16 +17,14 @@ public class UserService {
 	
 	
 	@Transactional
-	public int 회원가입(User user) {
-		try {
-			userRepository.save(user);
-			return 1;
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("UserService : 회원가입() :"+e.getMessage());
-		}
-		return -1;
-		
+	public void 회원가입(User user) {
+		userRepository.save(user);
 	}
-
+	
+		
+//		@Transactional(readOnly = true)
+//		public User 로그인(User user) {
+//			return userRepository.findByUsernameAndpassword(user.getUsername(), user.getPassword());
+//			
+//	}
 }
